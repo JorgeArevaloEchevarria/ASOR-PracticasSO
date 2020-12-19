@@ -1,0 +1,9 @@
+[cursoredes@localhost Desktop]$ mkdir prueba
+[cursoredes@localhost Desktop]$ ls
+code.desktop             org.gnome.Terminal.desktop  wireshark.desktop
+org.gnome.gedit.desktop  prueba                      workspace
+[cursoredes@localhost Desktop]$ cd prueba
+[cursoredes@localhost prueba]$ cd ..
+[cursoredes@localhost Desktop]$ chmod 644 prueba
+[cursoredes@localhost Desktop]$ cd prueba
+bash: cd: prueba: Permission denied

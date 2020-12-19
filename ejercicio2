@@ -1,0 +1,7 @@
+El modo de un fichero es <tipo><rwx_propietario><rwx_grupo><rwx_resto>:
+tipo: - fichero ordinario; d directorio; l enlace; c dispositivo carácter; b dispositivo bloque; p FIFO; s socket
+rwx: r lectura (4); w escritura (2); x ejecución (1)
+Comprobar los permisos de algunos directorios (con ls -ld). 
+
+cursoredes@localhost ASOR-PracticasSO]$ ls -ld
+drwxrwxr-x 3 cursoredes cursoredes 221 Dec 19 15:33 
