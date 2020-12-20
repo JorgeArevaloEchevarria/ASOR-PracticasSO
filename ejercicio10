@@ -1,0 +1,2 @@
+ln -s [target file] [Symbolic filename] // enlace simbolico
+Los enlaces creados se pueden verificar por listado de directorio utilizando el comando de lista detallada: ls -l

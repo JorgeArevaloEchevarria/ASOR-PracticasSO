@@ -30,8 +30,7 @@ int main(int argc, char **argv) {
            }
 
 
-    printf("Ownership:                UID=%ld   GID=%ld\n",(long) sb.st_uid, (long) sb.st_gid);
-
+    printf("Ownership:                UID=%ld   GID=%ld\n",(long) sb.st_uid, (long) sb.st_gid)
     printf("Last status change:       %i", ctime(&sb.st_ctime));//
     printf("Last file modification:   %i", ctime(&sb.st_mtime));//ultima modificacion
 }
