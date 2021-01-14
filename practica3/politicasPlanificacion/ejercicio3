@@ -1,2 +1,7 @@
-Las llamadas fork() heredan los atributos de planificación
-y la prioridad es 12
+Cambiamos esta linea en el codigo del ejercicio2
+    int pid = atoi(argv[0]);
+--ejecutamos por Terminal
+    $sudo nice -n-10 /bin/sh
+    $sudo chrt -f -p 12 22152
+    $gcc -o ej ej2.c
+    $./ej

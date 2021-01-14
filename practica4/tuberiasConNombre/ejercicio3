@@ -1,0 +1,8 @@
+-Terminal1
+    $man mkfifo
+    $mkfifo tuberia
+    $ls -l
+    &stat tuberia
+    $echo "Test" > tuberia
+-Terminal2
+    $cat tuberia
