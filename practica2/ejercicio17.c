@@ -21,6 +21,10 @@ int main (int argc, char *argv[]){
     int totalBytes =0;
     struct stat datoFichero;
 
+    strcpy(path,argv[1]);
+    strcat(path,"/");
+    strcat(path,structDir->d_name);
+
     if(directorio == NULL){
         perror("fallo al abrir el directorio ");
         return -1;

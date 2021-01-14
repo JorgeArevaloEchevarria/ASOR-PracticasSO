@@ -1,0 +1,12 @@
+[cursoredes@localhost ASOR-PracticasSO]$ ls -i
+3125607 ejercicio1   3128065 ejercicio11.c  3125609 ejercicio3  3125611 ejercicio5    3125614 ejercicio6  3921187 ejercicio7.c  3128064 ejercicio9    3125606 README.md
+3128066 ejercicio10  3125608 ejercicio2     3125610 ejercicio4  3125612 ejercicio5.c    30890 ejercicio7  3577003 ejercicio8    3577006 ejercicio9.c
+
+[cursoredes@localhost ASOR-PracticasSO]$ stat ejercicio5 i
+  File: ‘ejercicio5’
+  Size: 8496            Blocks: 24         IO Block: 4096   regular file
+Device: fd00h/64768d    Inode: 3125611     Links: 1
+Access: (0775/-rwxrwxr-x)  Uid: ( 1000/cursoredes)   Gid: ( 1000/cursoredes)
+Access: 2020-12-19 15:13:23.756259353 +0100
+Modify: 2020-12-19 15:13:23.756259353 +0100
+Change: 2020-12-19 15:13:23.756259353 +0100
