@@ -20,6 +20,9 @@
 [Hijo]PPID: 16579
 [Hijo]LIMIT: 4096
 [Hijo]CWD: /tmp
+
+¿Qué pasa si el padre termina antes que el hijo?
+El hijo se queda huérfano y el ppid lo recoge la shell o init.
 */
 
 void printAtributos(char *type){
