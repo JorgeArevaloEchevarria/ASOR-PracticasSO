@@ -1,0 +1,85 @@
+-el comando chrt permite manipular los atributos de tiempo real de un proceso
+    chrt [options] -p [prio] pid
+Supongamos que usted está interesado en la manipulación de la política de planificación o la prioridad del proceso de gedit.
+Así que lo primero que tiene que hacer es obtener el identificador de proceso para este proceso, algo que se puede hacer utilizando el  pidof comando.
+    -pidof gedit
+En mi sistema, por ejemplo, el comando anterior dio el pid '6063' como salida.
+Ahora, para recuperar la política actual de programación y prioridad para el proceso de gedit, el uso chrt de la siguiente manera:
+    -chrt -p 6063
+
+
+Prueba en Terminal:
+[root@localhost politicasPlanificacion]#  sudo nice -n -10 gedit
+[root@localhost politicasPlanificacion]# ps -eo pid,ppid,ni,comm
+  PID  PPID  NI COMMAND
+.......................
+15400     1 -10 dbus-launch
+15401     1 -10 dbus-daemon
+15403     1 -10 xdg-desktop-por
+15408     1 -10 xdg-document-po
+15412     1 -10 xdg-permission-
+15423     1 -10 xdg-desktop-por
+15429     1 -10 dconf-service
+15435 14967   0 ps
+
+-Parte 2.
+[root@localhost politicasPlanificacion]# pidof gedit
+15322
+[root@localhost politicasPlanificacion]# chrt -p 15322
+pid 15322's current scheduling policy: SCHED_OTHER
+pid 15322's current scheduling priority: 0
+
+[root@localhost politicasPlanificacion]# chrt -f -p 12 15322
+[root@localhost politicasPlanificacion]# chrt -p 15322
+pid 15322's current scheduling policy: SCHED_FIFO
+pid 15322's current scheduling priority: 12
+
+Esto se puede hacer mediante la opción de línea de comandos -f.
+
+chrt -f -p 20 6063
+
+POLÍTICAS         arriba
+       -o , demás 
+              políticas Conjunto de programación para SCHED_OTHER (tiempo compartido
+              Planificación). Esta es la política de programación predeterminada de Linux.
+
+       -f , --fifo 
+              Establece la política de programación en SCHED_FIFO (primero en entrar, primero en salir).
+
+        .....
+
+//chrt muestran mínimas / máximas prioridades válidos
+[root@localhost politicasPlanificacion]# chrt -m
+SCHED_OTHER min/max priority    : 0/0
+SCHED_FIFO min/max priority     : 1/99
+SCHED_RR min/max priority       : 1/99
+SCHED_BATCH min/max priority    : 0/0
+SCHED_IDLE min/max priority     : 0/0
+SCHED_DEADLINE min/max priority : 0/0
+
+
+Políticas de planificación (ver /usr/include/bits/sched.h)
+    -SCHED_OTHER: Política estándar de tiempo compartido con prioridad 0, que considera el valor de nice (entre -20 y 19, 0 por defecto) para repartir la CPU
+    -SCHED_FIFO: Política de tiempo real FIFO con prioridades entre 1 y 99.
+                Una tarea de esta política se ejecutará hasta que se bloquee por E/S, sea expropiada por una tarea con mayor prioridad o ceda la CPU
+    Consultar y establecer la política de planificación y establecer la prioridad:
+        -int sched_getscheduler(pid_t pid);
+        -int sched_setscheduler(pid_t pid, int policy, const struct sched_param *p);
+            *pid es un PID (un valor 0 se refiere al proceso actual)
+            *policy selecciona la política de planificación
+            *p establece la nueva prioridad
+
+        struct sched_param {
+            int sched_priority;
+            ...
+        };
+
+(<sys/time.h>
+<sys/resource.h>)
+Obtener y establecer el valor de nice de un proceso:
+    -int getpriority(int which, int who);
+    -int setpriority(int which, int who, int prio);
+        *which puede ser PRIO_PROCESS, PRIO_PGRP o PRIO_USER
+        *who es un PID, un PGID o un UID, respectivamente 0 indica el proceso actual, el grupo de procesos del proceso actual o el UID real del proceso actual, respectivamente
+        *prio es el nuevo valor de nice entre -20 y 19 .Valores menores representan una mayor porción de CPU
+

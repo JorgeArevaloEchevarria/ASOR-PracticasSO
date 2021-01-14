@@ -1,0 +1,2 @@
+Las llamadas fork() heredan los atributos de planificación
+y la prioridad es 12
