@@ -1,0 +1,45 @@
+-Terminal 1:
+    $sleep 600
+
+-Terminal 2:
+    $kill -s
+
+-SIGHUP:
+    Comportamiento: Se ha terminado el proceso (Se ha desconectado de la SHELL).
+    Salida:Colgar (hangup)
+
+-SIGINT:
+    Comportamiento: Se ha interrumpido el sleep.
+    Salida:N/A
+
+-SIGQUIT:
+    Comportamiento: Se ha interrumpido el sleep.
+    Salida: Abandona (core generado)
+
+-SIGILL:
+    Comportamiento: Se ha interrumpido el sleep.
+    Salida:Instrucción ilegal (core generado)
+
+-SIGTRAP:
+    Comportamiento: Se ha interrumpido el sleep
+    Salida: «trap» para punto de parada/seguimiento (core generado)
+
+-SIGKILL:
+    Comportamiento: Se ha interrumpido el sleep
+    Salida: Terminado (killed)
+
+-SIGBUS:
+    Comportamiento: Se ha interrumpido el sleep
+    Salida: Error del bus (core generado)
+
+-SIGSEGV:
+    Comportamiento: Se ha interrumpido el sleep
+    Salida: Violación de segmento (core generado)
+
+-SIGPIPE:
+    Comportamiento: Se ha interrumpido el sleep
+    Salida: N/A (Ha salido una notificación en la pantalla).
+
+-SIGTERM:
+    Comportamiento: Se ha interrumpido el sleep
+    Salida: Terminado
