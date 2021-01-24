@@ -1,0 +1,14 @@
+$id
+uid=1000(borja) gid=1000(borja) grupos=1000(borja),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),118(lpadmin),128(sambashare)
+
+context (-Z): Sólo en SELinux
+
+Group (-g): 1000
+
+Groups (-G): 1000 4 24 27 30 46 118 128
+
+Name (-n):-
+
+Real (-r):-
+
+User(-u): 1000
